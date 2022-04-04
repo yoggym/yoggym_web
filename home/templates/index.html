@@ -1,0 +1,523 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from wizixo.webestica.com/index-9.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Sep 2020 11:33:44 GMT -->
+<head>
+	<title>YOGYMS</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/fancybox/css/jquery.fancybox.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/owlcarousel/css/owl.carousel.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/swiper/css/swiper.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+	<script type="text/javascript">
+		function calculateBMI(){
+			height = document.getElementById("height").value;
+			weight = document.getElementById("weight").value;
+			bmi=weight/((height/100)*(height/100));
+			var bmi = bmi.toFixed(2);
+			document.getElementById("bmiResult").innerHTML ="Your BMI is "+bmi;
+			document.getElementById("bmiResult").style.display = "inline";
+			if(bmi < 18.5){
+				document.getElementById("bmiResult").classList.remove("btn-outline-success");
+				document.getElementById("bmiResult").classList.remove("btn-outline-danger");
+			 	document.getElementById("bmiResult").classList.add("btn-outline-warning");
+			}
+			else if(bmi>=18.5 && bmi <24.9){
+				document.getElementById("bmiResult").classList.remove("btn-outline-danger");
+				document.getElementById("bmiResult").classList.remove("btn-outline-warning");
+			 	document.getElementById("bmiResult").classList.add("btn-outline-success");
+			}
+			else if(bmi>=24.9 && bmi <= 29.9){
+				document.getElementById("bmiResult").classList.remove("btn-outline-success");
+				document.getElementById("bmiResult").classList.remove("btn-outline-danger");
+			 	document.getElementById("bmiResult").classList.add("btn-outline-warning");
+			}
+			else{
+				document.getElementById("bmiResult").classList.remove("btn-outline-success");
+				document.getElementById("bmiResult").classList.remove("btn-outline-warning");
+			 	document.getElementById("bmiResult").classList.add("btn-outline-danger");
+			}
+		}
+	</script>
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-dark.html" %}
+	<!-- =======================
+	header End-->
+
+	<div class="modal fade text-left" id="BMIModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">BMI Calculator</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-12">
+								<div class="form-group">
+									<label>Height</label>
+									<input class="form-control" type="number" step="0.01" id="height" name="height" placeholder="Enter your height in cms">
+								</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label>Weight</label>
+										<input class="form-control" type="number" step="0.01" id="weight" name="weight" placeholder="Enter your weight in kgs">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<button id="bmiResult" href="" class="btn" style="width: 100%;display: none;"></button>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary" id="checkBMI" onclick="calculateBMI()">Check</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+	<!-- =======================
+	Main Banner -->
+	<section class="p-0">
+		<div class="swiper-container h-md-100-vh swiper-arrow-hover swiper-slider-fade">
+			<div class="swiper-wrapper">
+				<!-- slide 1-->
+				<div class="swiper-slide bg-overlay-dark-3" style="background-image:url({% static 'assets/images/banner/GymBack1.jpg' %}); background-size: cover;">
+					<div class="container h-100">
+						<div class="row d-flex h-100">
+							<div class="col-md-8 col-lg-6 mr-auto slider-content justify-content-center align-self-center align-items-start text-left">
+								<h2 class="animated fadeInDown dealy-500 display-5 display-sm-3 text-white font-weight-bold display-lg-2">Your Own Gym</h2>
+								<p class="animated fadeInDown dealy-1000 lead text-white alt-font font-italic d-none d-lg-block">The Company offers the user to acess their dream fitness in much easier way by providing users to access any of his favorite gym, they'll get the benefit of transferring their ownership in any gym, plus they'll get their independent deit and workout  schedule according to their fitness goal.</p>
+								<form class="animated fadeInDown dealy-1500 bg-white my-2 my-md-4 p-2 w-100 border-radius-3 shadow">
+									<div class="input-group">
+										<input class="form-control border-radius-right-0 border-0" type="text" name="search" placeholder="Search Gym">
+										<a href="http://127.0.0.1:8000/gymCatalog" class="btn btn-grad mb-0">
+											<span class="d-none d-md-block">Search</span>
+											<span class="d-md-none"><i class="fa fa-search m-0"></i></span>
+										</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- slide 2-->
+				<!--  background-position: center center; -->
+				<div class="swiper-slide bg-overlay-dark-3" style="background-image:url({% static 'assets/images/banner/GymBack2.jpg' %}); background-size: cover;">
+					<div class="container h-100">
+						<div class="row d-flex h-100">
+							<div class="col-lg-7 justify-content-center align-self-center mx-auto slider-content text-center">
+								<h2 class="animated fadeInUp dealy-500 display-5 display-sm-3 text-white font-weight-bold display-lg-2">Your Own Gym</h2>
+								<p class="animated fadeInUp dealy-1000 lead text-white alt-font font-italic d-none d-md-block">When it comes to both our product and our organisation,  we are at the forefront of innovation. We are curious enthusiastic and driven by the desire to exceed our user's expectations.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide bg-overlay-dark-3" style="background-image:url({% static 'assets/images/banner/GymBack3.jpg' %}); background-size: cover;">
+					<div class="container h-100">
+						<div class="row d-flex h-100">
+							<div class="col-lg-7 justify-content-center align-self-center mx-auto slider-content text-center">
+								<h2 class="animated fadeInUp dealy-500 display-5 display-sm-3 text-white font-weight-bold display-lg-2">Your Own Gym</h2>
+								<p class="animated fadeInUp dealy-1000 lead text-white alt-font font-italic d-none d-md-block">When it comes to both our product and our organisation,  we are at the forefront of innovation. We are curious enthusiastic and driven by the desire to exceed our user's expectations.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide bg-overlay-dark-3" style="background-image:url({% static 'assets/images/banner/GymBack4.jpg' %}); background-size: cover;">
+					<div class="container h-100">
+						<div class="row d-flex h-100">
+							<div class="col-lg-7 justify-content-center align-self-center mx-auto slider-content text-center">
+								<h2 class="animated fadeInUp dealy-500 display-5 display-sm-3 text-white font-weight-bold display-lg-2">Your Own Gym</h2>
+								<p class="animated fadeInUp dealy-1000 lead text-white alt-font font-italic d-none d-md-block">When it comes to both our product and our organisation,  we are at the forefront of innovation. We are curious enthusiastic and driven by the desire to exceed our user's expectations.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Slider buttons -->
+			<div class="swiper-button-next"><i class="ti-angle-right"></i></div>
+			<div class="swiper-button-prev"><i class="ti-angle-left"></i></div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</section>
+	<!-- =======================
+	Main banner -->
+
+	<!-- =======================
+	welcome -->
+	<section class="bg-light">
+		<div class="container">
+			<div class="owl-carousel owl-grab dots-dark" data-arrow="false" data-items="1" data-autoplay="4500">
+				<!-- item 1 -->
+				 
+				<div class="item mb-3">
+					<div class="row">
+						{% for key, values in gymData1.items %}
+						<!-- Team item -->
+						<div class="col-sm-6 col-md-3">
+							<div class="team-item text-center">
+								<div class="team-avatar">
+									{% for k in values.images %}
+									<img src="{{k.pic.url}}" alt="">
+									{% endfor %}
+								</div>
+								<div class="team-desc">
+									<h5 class="team-name">{{values.data.userId.first_name}}</h5>
+									<a href="http://127.0.0.1:8000/GymDashboard/{{values.data.gymData.id}}">
+									<span class="team-position">@ <s>{{values.data.gymData.monthlyOriginal}}</s> {{values.data.gymData.monthlyPrice}} INR per Month</span></a>
+									<br>
+									<!-- <a class="btn btn-grad btn-xs" href="#">JOIN @{{values.data.gymData.monthlyPrice}} INR per Month</a> -->
+								</div>
+							</div>
+						</div>
+							{% endfor %}
+					</div>
+				</div>
+				<div class="item mb-3">
+					<div class="row">
+						{% for key, values in gymData2.items %}
+						<!-- Team item -->
+						<div class="col-sm-6 col-md-3">
+							<div class="team-item text-center">
+								<div class="team-avatar">
+									{% for k in values.images %}
+									<img src="{{k.pic.url}}" alt="">
+									{% endfor %}
+								</div>
+								<div class="team-desc">
+									<h5 class="team-name">{{values.data.userId.first_name}}</h5>
+									<span class="team-position">Founder</span>
+									<p>Far concluded not his something extremity. Four we face an he gate.</p>
+								</div>
+							</div>
+						</div>
+							{% endfor %}
+					</div>
+				</div>
+				<div class="item mb-3">
+					<div class="row">
+						{% for key, values in gymData3.items %}
+						<!-- Team item -->
+						<div class="col-sm-6 col-md-3">
+							<div class="team-item text-center">
+								<div class="team-avatar">
+									{% for k in values.images %}
+									<img src="{{k.pic.url}}" alt="">
+									{% endfor %}
+								</div>
+								<div class="team-desc">
+									<h5 class="team-name">Allen Smith</h5>
+									<span class="team-position">Founder</span>
+									<p>Far concluded not his something extremity. Four we face an he gate.</p>
+								</div>
+							</div>
+						</div>
+							{% endfor %}
+					</div>
+				</div>
+			
+				<!-- <div class="item mb-3">
+					<div class="row">
+						<div class="col-md-10 col-lg-6 mx-md-auto align-self-center">
+							<div class="text-left">
+								<h2>{{values.data.userId.first_name}}</h2>
+								<div class="row">
+							<div class="col-6">
+								<ul class="list-group list-group-borderless list-group-icon-primary-bg">
+									{% if values.data.gymData.featuresId.personalTrainer %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Personal Trainer   </li>
+							{% else %}
+							<li class="list-group-item"><i class="fa fa-close"></i>Personal Trianer  </li>
+							{% endif %}
+							{% if values.data.gymData.featuresId.changingRoom %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Changing Room   </li>
+							{% else %}
+							<li class="list-group-item"><i class="fa fa-close"></i>Changing Room  </li>
+							{% endif %}
+							{% if values.data.gymData.featuresId.ac %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Air Conditioner   </li>
+							{% else %}
+							<li class="list-group-item"><i class="fa fa-close"></i>Air Conditioner  </li>
+							{% endif %}
+
+								</ul>
+							</div>
+							<div class="col-6">
+								<ul class="list-group list-group-borderless list-group-icon-primary-bg">
+									{% if values.data.gymData.featuresId.sauna %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Sauna   </li>
+							{% else %}
+							<li class="list-group-item"><i class="fa fa-close"></i>Sauna  </li>
+							{% endif %}
+							{% if values.data.gymData.featuresId.locker %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Locker   </li>
+							{% else %}
+							<li class="list-group-item"><i class="fa fa-close"></i>Locker  </li>
+							{% endif %}
+							<li class="list-group-item"><i class="fa fa-check"></i>{{values.data.gymData.featuresId.speciality}}  </li>
+								</ul>
+							</div>
+						</div>
+							</div>
+						
+						</div>
+						<div class="col-md-10 col-lg-6 mx-md-auto align-self-center mt-4 mt-lg-0">
+							{% for k in values.images %}
+							<img class="rounded" src="{{k.pic.url}}" alt="">
+							{% endfor %}
+							<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
+								<a class="btn btn-grad" href="http://127.0.0.1:8000/gymCatalog"> <i class="fa fa-play text-white"></i>Join </a>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</section>
+	<div class="innerpage-banner left bg-overlay-dark-5 py-7 parallax-bg" data-jarallax-video="https://www.youtube.com/watch?v=dRj5Xfjh7Dk">
+		<div class="container py-7">
+			<div class="row all-text-white pb-7">
+				<div class="col-12 col-lg-8">
+					<h1 class="innerpage-title">We are a creative agency specializing in all your branding needs</h1>
+					<h6 class="subtitle mb-4">We are a creative studio focusing on branding & web design</h6>
+				</div>
+			</div>
+			<div class="col-md-10 col-lg-6 mx-md-auto align-self-center ">
+					<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
+						<a class="btn btn-grad" data-fancybox href="https://youtu.be/n_Cn8eFo7u8"> <i class="fa fa-play text-white"></i>Play Video </a>
+					</div>
+				</div>
+		</div>
+		<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="wave"><defs></defs><path id="wave-one" d=""/></svg>
+		<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="wave"><defs></defs><path id="wave-two" d=""/></svg>
+	</div>
+	<section class="pt-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7">
+					<div class="mb-lg-n8 mb-0">
+						<img src="{% static 'assets/images/mockups/gym_mockup_app.png' %}" alt="">
+					</div>
+				</div>
+				<div class="col-md-5 mt-5">
+					<h2 class="h1">We are coming soon to Playstore</h2>
+					<p class="lead">Partnering with 50+ gyms across Prayagraj City, uniquely customized <abbr title="title">for you.</abbr></p>
+					<p>There is nothing that can stop you from achieving what you want, except yourself. If you devote yourself to it you will achieve your goal.</p>
+					<div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	welcome -->
+
+	<!-- =======================
+	service -->
+	<section class="bg-dark">
+		<div class="container">
+			<!-- <div class="row justify-content-between align-items-center">
+				<div class="col-sm-2">
+					<h5 class="text-white">Trusted by 5M+ businesses.</h5>
+				</div>
+				<div class="col-sm-10">
+					<div class="owl-carousel owl-grab arrow-hover arrow-dark" data-arrow="false" data-dots="false" data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-sm="3" data-items-xs="2" data-autoplay="4500">
+						<div class="item"><img class="w-75 mx-auto" src="{% static 'assets/images/clients/01.png' %}" alt=""></div>
+						<div class="item"><img class="w-75 mx-auto" src="{% static 'assets/images/clients/02.png' %}" alt=""></div>
+						<div class="item"><img class="w-75 mx-auto" src="{% static 'assets/images/clients/03.png' %}" alt=""></div>
+						<div class="item"><img class="w-75 mx-auto" src="{% static 'assets/images/clients/04.png' %}" alt=""></div>
+						<div class="item"><img class="w-75 mx-auto" src="{% static 'assets/images/clients/05.png' %}" alt=""></div>
+						<div class="item"><img class="w-75 mx-auto" src="{% static 'assets/images/clients/06.png' %}" alt=""></div>
+						<div class="item"><img class="w-75 mx-auto" src="{% static 'assets/images/clients/07.png' %}" alt=""></div>
+						<div class="item"><img class="w-75 mx-auto" src="{% static 'assets/images/clients/08.png' %}" alt=""></div>
+					</div>
+				</div>
+			</div> -->
+
+			<div class="row mt-4 text-center">
+				<div class="col-sm-12">
+					<h2 class="text-white text-center mt-5 mb-3">Browse 2M+ Professional Services to Get Your Job Done</h2>
+				</div>
+				<!-- service item -->
+				<div class="col-sm-6 col-lg-3 mt-30">
+					<a href="http://127.0.0.1:8000/gymCatalog">
+					<div class="feature-box bg-white shadow-hover border-radius-3 f-style-5 h-100 icon-grad">
+						<div class="feature-box-icon"><i class="fa fa-handshake-o" aria-hidden="true"></i></div>
+						<h3 class="feature-box-title">Partner Gyms</h3>
+						<p class="feature-box-desc">We help our customers better manage their web presence.</p>
+					</div>
+					</a>
+				</div>
+				<!-- service item -->
+				<div class="col-sm-6 col-lg-3 mt-30">
+					<a href="http://127.0.0.1:8000/TransferSubsciption">
+					<div class="feature-box bg-white shadow-hover border-radius-3 f-style-5 h-100 icon-grad">
+						<div class="feature-box-icon"><i class="ti-ruler-pencil"></i></div>
+						<h3 class="feature-box-title">Transfer Subscription</h3>
+						<p class="feature-box-desc">We provide digital transformation solutions to make their visions reality.</p>
+					</div>
+				</a>
+				</div>
+				<!-- service item -->
+				<div class="col-sm-6 col-lg-3 mt-30">
+					<a href="http://127.0.0.1:8000/DietChart">
+					<div class="feature-box bg-white shadow-hover border-radius-3 f-style-5 h-100 icon-grad">
+						<div class="feature-box-icon"><i class="ti-write"></i></div>
+						<h3 class="feature-box-title">Diet Chart</h3>
+						<p class="feature-box-desc">We are an innovative Internet marketing solutions company that offers web development</p>
+					</div>
+				</a>
+				</div>
+				<!-- service item -->
+				<div class="col-sm-6 col-lg-3 mt-30">
+					<a href="http://127.0.0.1:8000/WorkoutChart">
+					<div class="feature-box bg-white shadow-hover border-radius-3 f-style-5 h-100 icon-grad">
+						<div class="feature-box-icon"><i class="ti-announcement"></i></div>
+						<h3 class="feature-box-title">Workout Chart </h3>
+						<p class="feature-box-desc">With us at your side, you will find the IT solution to achieve your financial goals. </p>
+					</div>
+					</a>
+				</div>
+				<!-- service item -->
+				<div class="col-sm-6 col-lg-3 mt-30">
+					<a href="http://127.0.0.1:8000/timeline">
+					<div class="feature-box bg-white shadow-hover border-radius-3 f-style-5 h-100 icon-grad">
+						<div class="feature-box-icon"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
+						<h3 class="feature-box-title">Timeline</h3>
+						<p class="feature-box-desc">SEO strategies and various other types of Internet marketing related services</p>
+					</div>
+					</a>
+				</div>
+				<!-- service item -->
+				<div class="col-sm-6 col-lg-3 mt-30">
+					<a href="" data-toggle="modal" data-target="#BMIModal">
+					<div class="feature-box bg-white shadow-hover border-radius-3 f-style-5 h-100 icon-grad">
+						<div class="feature-box-icon"><i class="ti-panel"></i></div>
+						<h3 class="feature-box-title">BMI Calculator</h3>
+						<p class="feature-box-desc">We provide digital transformation solutions, enabling companies to make their visions reality.</p>
+					</div>
+				</a>
+				</div>
+				<!-- service item -->
+				<div class="col-sm-6 col-lg-3 mt-30">
+					<div class="feature-box bg-white shadow-hover border-radius-3 f-style-5 h-100 icon-grad">
+						<div class="feature-box-icon"><i class="ti-zoom-in"></i></div>
+						<h3 class="feature-box-title">Find Gym</h3>
+						<p class="feature-box-desc">SEO strategies and various other types of Internet marketing related services</p>
+					</div>
+				</div>
+				<!-- service item -->
+				<div class="col-sm-6 col-lg-3 mt-30">
+					<a href="http://127.0.0.1:8000/services">
+					<div class="feature-box bg-white shadow-hover border-radius-3 f-style-5 h-100 icon-grad">
+						<div class="feature-box-icon"><i class="ti-wallet"></i></div>
+						<h3 class="feature-box-title">Our Services</h3>
+						<p class="feature-box-desc">We provide multiple services to make your daily workout easy and tension free.</p>
+					</div>
+				</a>
+				</div>
+			</div>
+			<!-- <div class="row">
+				<div class="col-sm-12 mt-2 mt-md-4">
+					<div class="text-center">
+						<a class="btn btn-outline-white mt-4" href="#!">See All Freelancer Skills</a>
+						<small class="d-block mt-2">Gain Access to a Network of Top Industry Experts</small>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</section>
+	<!-- =======================
+	service -->
+
+
+	<!-- =======================
+	info -->
+	
+	<!-- =======================
+	info -->
+
+	
+
+	<!-- =======================
+	action box -->
+	<!-- <section class="bg-overlay-dark-5" style="background:url({% static 'assets/images/bg/05.jpg' %}) no-repeat; background-size:cover; background-position: center center; ">
+		<div class="container">
+			<div class="d-block d-md-flex py-4 py-sm-5 ">
+				<div class="align-self-center text-center text-md-left">
+					<h3 class="display-6 display-md-5 font-weight-bold text-white">Crafting visually stunning memorable <span class="text-primary">experiences</span> for web.</h3>
+					<p class="m-0 lead text-white">We provide digital transformation solutions, enabling companies to make their visions reality.</p>
+				</div>
+				<div class="mt-3 mt-md-0 pl-0 pl-md-5 text-center text-md-right ml-md-auto align-self-center">
+					<a class="btn btn-round btn-lg zoom-on-hover btn-outline-white mb-0" data-fancybox href="https://youtu.be/n_Cn8eFo7u8"> <i class="fa fa-play"></i></a>
+				</div>
+			</div>
+		</div>
+	</section> -->
+	<!-- =======================
+	action box -->
+
+	<!-- =======================
+	footer  -->
+		{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--All plugins-->
+	<script src="{% static 'assets/vendor/fancybox/js/jquery.fancybox.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/owlcarousel/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/swiper/js/swiper.js' %}"></script>
+	<script src="{% static 'assets/vendor/jarallax/jarallax.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jarallax/jarallax-video.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/wavify/wavify.js' %}"></script>
+	<script src="{% static 'assets/vendor/wow/wow.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+<!-- Mirrored from wizixo.webestica.com/index-9.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Sep 2020 11:33:45 GMT -->
+</html>

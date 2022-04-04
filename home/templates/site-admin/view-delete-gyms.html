@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | Gym List</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+
+
+	<!-- =======================
+	Banner innerpage -->
+	<div class="text-center bg-overlay-dark-4" style="background:url({% static 'assets/images/bg/05.jpg' %}) no-repeat; background-size: cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<br><br><br><br><br><br><br><br>
+					<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4">Gym List</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+
+	<!-- =======================
+	contact -->
+	<section class="contact-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-8 mx-auto">
+					<div class="title text-center">
+						
+						
+					</div>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="col-sm-12 mb-5">
+					
+					<div class="table-responsive-sm">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th scope="col">Gym Name</th>
+									<th scope="col">Owner Name</th>
+									<th scope="col">Email</th>
+									<th scope="col">Phone</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% if gymData %}
+								{% for k in gymData %}
+								<tr>
+									<th scope="row">{{k.userId.first_name}}</th>
+									<td>{{k.userId.lastname}}</td>
+									<td>{{k.userId.email}}</td>
+									<td>{{k.userId.username}}</td>
+									<td><form method="POST" action="http://127.0.0.1:8000/ViewDeleteGyms">
+										{% csrf_token %}
+										<input type="hidden" name="id" value="{{k.id}}">
+										<button class="btn btn-link" type="submit">Remove</button>
+									</form>
+										</td>
+								</tr>
+								{% endfor %}
+								{% endif %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	contact -->
+
+	<!-- =======================
+	more-info -->
+	
+	<!-- =======================
+	more-info -->
+
+	<!-- =======================
+	footer  -->
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!-- Google Map -->
+	<script src="{% static 'assets/vendor/map/map.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtF5lHSU7Y7c2BYl_c4-G9bSi44h1X9Ls"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+</html>

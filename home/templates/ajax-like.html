@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from wizixo.webestica.com/timeline.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Sep 2020 11:34:04 GMT -->
+<head>
+	<title>Wizixo | Creative Multipurpose Bootstrap Template</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Creative Multipurpose Bootstrap Template">
+
+	
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+$(document).ready(function(){
+  	$(document).on('click', '.like', function()
+  		{
+  			alert("heare");
+        	var post_id = $(this).attr("id");
+        	$.get("http://127.0.0.1:8000/like/"+post_id, function(data, status){
+		      /*alert("Data: " + data['like'] + "\nStatus: " + status);*/
+		      $("#"+post_id).text(data['like']);
+		    });
+       
+       	});
+	});
+</script>
+
+</head>
+
+<body>
+	<!-- {% for key, values in Data.items %}
+		<h1>{{values.data.title}}</h1>
+		<h1>{{values.liked}}</h1> -->
+	<button type="submit" name="submit" class="btn btn-link like" id={{k.id}}>Like {{k.id}} count = {{k.likes.count}}</button>
+	<!-- {% endfor %} -->
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Vendors-->
+	<script src="{% static 'assets/vendor/fitvids/jquery.fitvids.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+<!-- Mirrored from wizixo.webestica.com/timeline.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Sep 2020 11:34:04 GMT -->
+</html>

@@ -1,0 +1,394 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | Add Gym Details</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+
+
+	<!-- =======================
+	Banner innerpage -->
+	<div class="text-center bg-overlay-dark-4" style="background:url({% static 'assets/images/bg/05.jpg' %}) no-repeat; background-size: cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<br><br><br><br><br><br><br><br>
+					<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4">Gym Details</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+
+	<!-- =======================
+	contact -->
+	<section class="contact-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-8 mx-auto">
+					<div class="title text-center">
+						
+						
+					</div>
+				</div>
+			</div>
+			<div class="row ">
+				
+				<!-- google map -->
+				
+				<!-- contact form -->
+				<div class="col-md-12">
+					<div class="h-100">
+						<h3>Add Gym Details</h3>
+						
+						<form method="POST" enctype="multipart/form-data" action="http://127.0.0.1:8000/EditGym">
+							{% csrf_token %}
+
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<label>About</label>
+										<input type="hidden" name="gymId" value="{{gymData.id}}">
+										<input type="hidden" name="featuresId" value="{{gymData.gymData.featuresId.id}}">
+										<input id="con-name" name="about" type="text" class="form-control" value="{{gymData.gymData.about}}" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<label>Additional Info</label>
+										<input id="con-name" name="additionalInfo" type="text" class="form-control" value="{{gymData.gymData.additionalInfo}}" required>
+									</span>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<!-- email -->
+									<span class="form-group">
+										<label>Testimonial</label>
+										<textarea id="con-email" name="testimonial" type="text" class="form-control" value="{{gymData.gymData.testimonial}}" required></textarea>
+									</span>
+								</div>
+							
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Acc. No.</label>
+										<input id="con-email" name="accountNo" type="text" class="form-control" value="{{gymData.gymData.accountNo}}" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Bank Name</label>
+										<input id="con-email" name="bankName" type="text" class="form-control" value="{{gymData.gymData.bankName}}" multiple="True" required>
+									</span>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>IFSC Code</label>
+										<input id="con-email" name="IFSCcode" type="text" class="form-control" value="{{gymData.gymData.IFSCcode}}" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Branch</label>
+										<input id="con-email" name="bankBranch" type="text" class="form-control" value="{{gymData.gymData.bankBranch}}" multiple="True" required>
+									</span>
+								</div>
+							</div>
+
+							
+
+							<div class="row">
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Opening Time</label>
+										<input id="con-email" name="openingTime" type="text" class="form-control" value="{{gymData.gymData.openingTime}}" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Closing Time</label>
+										<input id="con-email" name="closingTime" type="text" class="form-control" value="{{gymData.gymData.closingTime}}" multiple="True" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<!-- name -->
+									<span class="form-group">
+										<label>Closed On</label>
+										<input id="con-name" name="closedOn" type="text" class="form-control" value="{{gymData.gymData.closedOn}}" required>
+									</span>
+								</div>
+								
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<label>Facility</label>
+										<input id="con-name" name="facility" type="text" class="form-control" value="{{gymData.gymData.featuresId.facility}}" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Gender</label>
+										<select class="form-control mb-3" name="genders" required>
+											<option selected="" value="">Select Gender</option>
+											<option value="Male">Male</option>
+											<option value="Female">Female</option>
+											<option value="All">All</option>
+										</select>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<label>Speciality</label>
+										<input id="con-name" name="speciality" type="text" class="form-control" value="{{gymData.gymData.featuresId.speciality}}" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>AC</label>
+										<select class="form-control mb-3" name="ac" required>
+											<option selected="" value="">AC</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<label>Changing Rooms</label>
+										<select class="form-control mb-3" name="changingRoom" required>
+											<option selected="" value="">Changing Rooms</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Personal Trainer</label>
+										<select class="form-control mb-3" name="personalTrainer" required>
+											<option selected="" value="">Personal Trainer</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<label>Sauna</label>
+										<select class="form-control mb-3" name="sauna" required>
+											<option selected="" value="">Sauna</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Lockers</label>
+										<select class="form-control mb-3" name="locker" required>
+											<option selected="" value="">Locker</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<label>Monthly Price</label>
+										<input id="con-email" name="monthlyPrice" type="text" class="form-control" value="{{gymData.gymData.monthlyPrice}}" required>
+									</span>
+								</div>
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<label>Monthly Ori. Price</label>
+										<input id="con-email" name="monthlyOriginal" type="text" class="form-control" value="{{gymData.gymData.monthlyOriginal}}" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Monthly About</label>
+										<input id="con-email" name="monthlyAbout" type="text" class="form-control" value="{{gymData.gymData.monthlyAbout}}" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<label>Quarterly Price</label>
+										<input id="con-email" name="quarterlyPrice" type="text" class="form-control" value="{{gymData.gymData.quarterlyPrice}}" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<label>Quarterly Ori. Price</label>
+										<input id="con-email" name="quarterlyOriginal" type="text" class="form-control" value="{{gymData.gymData.quarterlyOriginal}}" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Quarterly About</label>
+										<input id="con-email" name="quarterlyAbout" type="text" class="form-control" value="{{gymData.gymData.quarterlyAbout}}" multiple="True" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<label>Half Yearly Price</label>
+										<input id="con-email" name="halfyearlyPrice" type="text" class="form-control" value="{{gymData.gymData.halfyearlyPrice}}" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<label>Halfyearly Ori. Price</label>
+										<input id="con-email" name="halfyearlyOriginal" type="text" class="form-control" value="{{gymData.gymData.halfyearlyOriginal}}" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Half Yearly About</label>
+										<input id="con-email" name="halfyearlyAbout" type="text" class="form-control" value="{{gymData.gymData.halfyearlyAbout}}" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<label>Yearly Price</label>
+										<input id="con-email" name="yearlyPrice" type="text" class="form-control" value="{{gymData.gymData.yearlyPrice}}" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<label>Yearly Ori. Price</label>
+										<input id="con-email" name="yearlyOriginal" type="text" class="form-control" value="{{gymData.gymData.yearlyOriginal}}" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<label>Yearly About</label>
+										<input id="con-email" name="yearlyAbout" type="text" class="form-control" value="{{gymData.gymData.yearlyAbout}}" multiple="True" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<span class="form-group">
+										<label>Youtube Link</label>
+										<input id="con-email" name="ytlink" type="text" class="form-control" value="{{gymData.gymData.ytlink}}" required>
+									</span>
+								</div>
+								
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								<!-- submit button -->
+								<div class="col-md-12 text-center"><button type="submit" class="btn btn-dark btn-block">Add</button></div>
+							</div>
+							</div>
+							</div>
+							<!-- End main form -->
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	contact -->
+
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!-- Google Map -->
+	<script src="{% static 'assets/vendor/map/map.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtF5lHSU7Y7c2BYl_c4-G9bSi44h1X9Ls"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+</html>

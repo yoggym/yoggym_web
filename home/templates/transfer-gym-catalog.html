@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | Transfer Gym</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/fancybox/css/jquery.fancybox.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+
+	<!-- =======================
+	portfolio -->
+	<section>
+		<div class="container">
+			<!-- Portfolio info -->
+			<div class="row mb-4">
+				<div class="col-md-8 mx-auto text-center">
+					<h3 class="display-4">Our Partner Gyms</h3>
+					
+					<p class="lead">Subscribe to any of these gyms and get access to 24 x 7 support of YOGYMS services. Get gyms near your location at really affordable price.</p>
+					<!-- <a class="btn btn-grad mt-4 mb-5" data-fancybox="" href="https://youtu.be/n_Cn8eFo7u8"> <i class="fa fa-play text-white"></i>Play Video </a> -->
+				</div>
+			</div>
+
+			<!-- portfolio requirement -->
+			 {% for key, values in gymData.items %}
+			{% cycle True False as row silent %}
+            {% if row %}
+			<div class="row mb-4">
+				<div class="col-md-6">
+					{% for k in values.images %}
+					
+					<a class="mb-4 d-block" href="{{ k.pic.url }}" data-fancybox="portfolio" data-caption="Kitchen design"><img src="{{ k.pic.url }}" alt=""></a>
+					
+					{% endfor %}
+				</div>
+				<div class="col-md-6">
+					<div class="sticky-element">
+						<h2>{{ values.data.userId.first_name }}</h2>
+						<p>{{ values.data.about }}</p>
+						<ul class="list-group list-group-borderless list-group-icon-primary-bg">
+							<li class="list-group-item"><i class="fa fa-check"></i>Timing : {{ values.data.openingTime }}-{{ values.data.closingTime }}</li>
+							<li class="list-group-item"><i class="fa fa-check"></i>Closed On : {{ values.data.closedOn}} </li>
+							<li class="list-group-item"><i class="fa fa-check"></i>Facility : {{ values.data.facility }}</li>
+							<li class="list-group-item"><i class="fa fa-check"></i>Genders : {{ values.data.genders }}</li>
+						</ul>
+						<a class="btn btn-grad" href="http://127.0.0.1:8000/GymDashboard/{{values.data.id}}" style="width: 100%;">View Gym Page <i class="fa fa-external-link ml-2 mr-0"></i></a>
+					</div>
+				</div>
+			</div>
+			{% else %}
+			<!-- portfolio solution -->
+			<div class="row mb-4">
+				<div class="col-md-6 order-last order-md-1">
+					<div class="sticky-element">
+						<h2>{{ values.data.userId.first_name }}</h2>
+						<p>{{ values.data.about }}</p>
+						<ul class="list-group list-group-borderless list-group-icon-primary-bg">
+							<li class="list-group-item"><i class="fa fa-check"></i>Timing : {{ values.data.openingTime }}-{{ values.data.closingTime }}</li>
+							<li class="list-group-item"><i class="fa fa-check"></i>Closed On : {{ values.data.closedOn}}</li>
+							<li class="list-group-item"><i class="fa fa-check"></i>Facility : {{ values.data.facility }}</li>
+							<li class="list-group-item"><i class="fa fa-check"></i>Genders : {{ values.data.genders }}</li>
+						</ul>
+						<a class="btn btn-grad" href="http://127.0.0.1:8000/GymDashboard/{{values.data.id}}" style="width: 100%;">View Gym Page <i class="fa fa-external-link ml-2 mr-0"></i></a>
+					</div>
+				</div>
+				<div class="col-md-6 order-1 order-md-last">
+					{% for k in values.images %}
+					
+					<a class="mb-4 d-block" href="{{ k.pic.url }}" data-fancybox="portfolio" data-caption="Kitchen design"><img src="{{ k.pic.url }}" alt=""></a>
+					
+					{% endfor %}
+				</div>
+			</div>
+			{% endif %}
+			{% endfor %}
+			<!-- portfolio features -->
+			
+
+			<!-- portfolio additional details -->
+			
+			<!-- portfolio details End -->
+		</div>
+		<!-- portfolio End -->
+	</section>
+	<!-- =======================
+	portfolio -->
+
+
+	<!-- =======================
+	footer  -->
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Vendors-->
+	<script src="{% static 'assets/vendor/fancybox/js/jquery.fancybox.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/sticky-kit/sticky-kit.min.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | Timeline</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/fancybox/css/jquery.fancybox.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/owlcarousel/css/owl.carousel.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+<div class="modal fade text-left" id="uploadImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Upload Image</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<form method="POST" enctype="multipart/form-data" action="http://127.0.0.1:8000/Timeline">
+							{% csrf_token %}
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-12">
+								<div class="form-group">
+									<label>Title</label>
+									<input type="hidden" name="userId" value="{{user.id}}">
+									<input type="hidden" name="likes" value="{{user.id}}">
+									<input class="form-control" type="text" name="title" placeholder="Title">
+								</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								<div class="form-group">
+									<label for="exampleFormControlFile1">File input</label>
+									<input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+								</div>
+							</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Upload</button>
+						</div>
+					</form>
+
+					</div>
+				</div>
+			</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+
+
+	<!-- =======================
+	Banner innerpage -->
+	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url({% static 'assets/images/bg/04.jpg' %}) no-repeat; background-size:cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<h1 class="innerpage-title">Timeline</h1>
+					<h6 class="subtitle">Show your hardwork and inspire others</h6>
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item active"><a href="http://127.0.0.1:8000/"><i class="ti-home"></i> Home</a></li>
+							<li class="breadcrumb-item">Timeline</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+
+
+	<!-- =======================
+	Portfolio -->
+	<section class="portfolio portfolio-style-2 pb-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 p-0">
+					<div class="nav justify-content-center">
+						<ul class="nav-tabs nav-tabs-style-3 text-center px-2 p-md-0 m-0 mb-4">
+							<li class="nav-filter active" data-filter=".all">All Images</li>
+							<li class="nav-filter" data-filter=".pending">Pending</li>
+							<li class="nav-filter" data-filter=".approved">Approved</li>
+						</ul>
+
+
+					</div>
+					<div class="portfolio-wrap grid items-3 items-padding">
+						{% for k in imageData %}
+						<!-- portfolio-card -->
+						{% if k.status is False %}
+						<div class="portfolio-card isotope-item pending all">
+							<div class="portfolio-card-body">
+								<div class="portfolio-card-header">
+									<img src="{{k.image.url}}" alt="">
+								</div>
+								<div class="portfolio-card-footer">
+									<a class="full-screen" href="{{k.image.url}}" data-fancybox="portfolio" data-caption="{{k.title}}"><i class="ti-fullscreen"></i></a>
+									<h6 class="info-title"><a href="#" title="">{{k.title}}</a></h6>
+									<p><i class="ti-heart"></i> {{k.likes}}</p>
+								</div>
+							</div>
+						</div>
+						{% else %}
+						<div class="portfolio-card isotope-item approved all">
+							<div class="portfolio-card-body">
+								<div class="portfolio-card-header">
+									<img src="{{k.image.url}}" alt="">
+								</div>
+								<div class="portfolio-card-footer">
+									<a class="full-screen" href="{{k.image.url}}" data-fancybox="portfolio" data-caption="{{k.title}}"><i class="ti-fullscreen"></i></a>
+									<h6 class="info-title"><a href="#" title="">{{k.title}}</a></h6>
+									<p><i class="ti-heart"></i> {{k.likes}}</p>
+								</div>
+							</div>
+						</div>
+
+						{% endif %}
+						{% endfor %}
+					</div>
+
+					<!-- portfolio wrap -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	Portfolio -->
+
+	<!-- =======================
+	call to action-->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 text-center text-md-left align-self-center">
+					<h4 class="m-0">Upload an Image to Timeline!</h4>
+				</div>
+				<div class="col-md-3 text-center text-md-right mt-3 mt-md-0 align-self-center ">
+					<button type="button" class="btn btn-grad" data-toggle="modal" data-target="#uploadImage">
+					Upload Image
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	call to action-->
+
+
+	<!-- =======================
+	footer  -->
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Vendors-->
+	<script src="{% static 'assets/vendor/fancybox/js/jquery.fancybox.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/isotope/isotope.pkgd.min.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+</html>

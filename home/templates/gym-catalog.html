@@ -1,0 +1,242 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | Gyms</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/fancybox/css/jquery.fancybox.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/owlcarousel/css/owl.carousel.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+	<!-- <section class="client bg-grad">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="owl-carousel owl-grab arrow-hover arrow-dark" data-margin="80" data-arrow="true" data-dots="false" data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-sm="3" data-items-xs="2" data-autoplay="3800">
+						{% for key, values in gymData.items %}
+						{% for k in values.images %}
+						<div class="item"><a href="http://127.0.0.1:8000/GymDashboard/{{values.data.gymData.id}}"><h3 style="color:white;">{{values.data.userId.first_name}}</h3></a></div>
+						<div class="item"><img src="{{ k.pic.url }}" alt=""></img><button>{{values.data.userId.first_name}}</button></div>
+						{% endfor %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+
+	<section>
+		<div class="container">
+			<!-- Portfolio info -->
+			<div class="row mb-4">
+				<div class="col-md-8 mx-auto text-center">
+					<h3 class="display-4">Our Partner Gyms</h3>
+					
+					<p class="lead">Subscribe to any of these gyms and get access to 24 x 7 support of YOGYMS services. Get gyms near your location at really affordable price.</p>
+					<!-- <a class="btn btn-grad mt-4 mb-5" data-fancybox="" href="https://youtu.be/n_Cn8eFo7u8"> <i class="fa fa-play text-white"></i>Play Video </a> -->
+				</div>
+			</div>
+
+			<!-- portfolio requirement -->
+			 {% for key, values in gymData.items %}
+			{% cycle True False as row silent %}
+            {% if row %}
+			<div class="row mb-4">
+				<div class="col-md-6">
+					<div class="container">
+				<div class="row justify-content-between align-items-center">
+				<!-- left -->
+					<div class="row mt-4 mt-md-0">
+						<!-- <div class="col-5 offset-1 px-2 mb-3 align-self-end">
+							<div class="border-radius-3 wow fadeInLeft bg-grad p-2 p-sm-3 p-lg-4 p-xl-5 all-text-white" data-wow-duration="0.8s" data-wow-delay="0s">
+								<h3 class="font-weight-bold">Upload your pics to feature on our timeline</h3>
+							</div>
+						</div> -->
+						{% for k in values.images %}
+							<!-- <div class="{% cycle 'col-5 offset-1 px-2 mb-3 align-self-end' 'col-6 px-2 mb-3' 'col-7 px-2 mb-3' 'col-5 align-self-start pl-2 mb-3' %}">
+								<a class="mb-4 d-block" href="{{ k.pic.url }}" data-fancybox="portfolio" data-caption="Kitchen design"><img class="border-radius-3 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s" src="{{ k.pic.url }}" alt=""></a>
+							</div> -->
+							<div class="{% cycle 'col-5 offset-1 px-2 mb-3 align-self-end' 'col-6 px-2 mb-3' 'col-5 align-self-start pl-2 mb-3' %}">
+								<a class="mb-4 d-block" href="{{ k.pic.url }}" data-fancybox="portfolio" data-caption="Kitchen design"><img class="border-radius-3 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s" src="{{ k.pic.url }}" alt=""></a>
+							</div>
+					{% endfor %}
+						<div class="col-7 px-2 mb-3">
+								<div class="fit-video">
+									<iframe src="{{values.data.gymData.ytlink}}"  allow="autoplay; encrypted-media" allowfullscreen></iframe>
+								</div>
+							</div>
+						<!-- <div class="col-6 px-2 mb-3">
+							<div class="border-radius-3 wow fadeInLeft bg-grad p-2 p-sm-3 p-lg-4 p-xl-5 all-text-white" data-wow-duration="0.8s" data-wow-delay="0s">
+								<h3 class="font-weight-bold">Your mirror is your only rival. 
+								</h3>
+							</div>
+							
+						</div>
+						<div class="col-7 px-2 mb-3">
+							<a  href="http://127.0.0.1:8000/Timeline">
+							<div class="border-radius-3 wow fadeInLeft bg-grad p-2 p-sm-3 p-lg-4 p-xl-5 all-text-white" data-wow-duration="0.8s" data-wow-delay="0s">
+								<h3 class="font-weight-bold">"Get Up, Dress Up, Show Up"</h3>
+							</div>
+						</a>
+						</div>
+						<div class="col-5 align-self-start pl-2 mb-3">
+							<div class="border-radius-3 wow fadeInLeft bg-grad p-2 p-sm-3 p-lg-4 p-xl-5 all-text-white" data-wow-duration="0.8s" data-wow-delay="0s">
+								<h3 class="font-weight-bold">Show your hardwork to motivate others.</h3>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+
+
+					<!-- {% for k in values.images %}
+					
+					<a class="mb-4 d-block" href="{{ k.pic.url }}" data-fancybox="portfolio" data-caption="Kitchen design"><img src="{{ k.pic.url }}" alt=""></a>
+					
+					{% endfor %} -->
+				</div>
+				<div class="col-md-6">
+					<div class="sticky-element">
+						<h2>{{ values.data.userId.first_name }}</h2>
+						<p>{{ values.data.gymData.about }}</p>
+						<ul class="list-group list-group-borderless list-group-icon-primary-bg">
+							<!-- <li class="list-group-item"><i class="fa fa-check"></i>Trainer : {{ values.data.gymData.openingTime }}-{{ values.data.gymData.closingTime }}</li> -->
+							{% if values.data.gymData.featuresId.personalTrainer is True %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Personal Trainer   </li>
+							{% else %}
+							<li class="list-group-item"><i class="fa fa-close"></i>Personal Trianer  </li>
+							{% endif %}
+							{% if values.data.gymData.featuresId.changingRoom %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Changing Room   </li>
+							{% else %}
+							<li class="list-group-item"><i class="fa fa-close"></i>Changing Room  </li>
+							{% endif %}
+							{% if values.data.gymData.featuresId.ac %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Air Conditioner   </li>
+							
+							{% endif %}
+							{% if values.data.gymData.featuresId.sauna %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Sauna   </li>
+							{% else %}
+							<li class="list-group-item"><i class="fa fa-close"></i>Sauna  </li>
+							{% endif %}
+							{% if values.data.gymData.featuresId.locker %}
+							<li class="list-group-item"><i class="fa fa-check"></i>Locker   </li>
+							{% else %}
+							<li class="list-group-item"><i class="fa fa-close"></i>Locker  </li>
+							{% endif %}
+						</ul>
+						<div class="row">
+							<div class="col-md-5">
+						<a class="btn btn-grad" href="http://127.0.0.1:8000/GymDashboard/{{values.data.gymData.id}}" style="width: 100%;">View Gym Page <i class="fa fa-external-link ml-2 mr-0"></i></a>
+					</div>
+					<div class="col-md-7">
+						<a class="btn btn-grad" href="http://127.0.0.1:8000/GymDashboard/{{values.data.gymData.id}}#pricing" style="width: 100%;">Join @ Rs.<s>{{values.data.gymData.monthlyOriginal}}</s> {{values.data.gymData.monthlyPrice}}/month <i class="fa fa-external-link ml-2 mr-0"></i></a>
+					</div>
+				</div>
+					</div>
+				</div>
+			</div>
+			{% else %}
+			<!-- portfolio solution -->
+			<div class="row mb-4">
+				<div class="col-md-6 order-last order-md-1">
+					<div class="sticky-element">
+						<h2>{{ values.data.userId.first_name }}</h2>
+						<p>{{ values.data.gymData.about }}</p>
+						<ul class="list-group list-group-borderless list-group-icon-primary-bg">
+							<li class="list-group-item"><i class="fa fa-check"></i>Timing : {{ values.data.gymData.openingTime }}-{{ values.data.gymData.closingTime }}</li>
+							<li class="list-group-item"><i class="fa fa-check"></i>Closed On : {{ values.data.gymData.closedOn}}</li>
+							<li class="list-group-item"><i class="fa fa-check"></i>Facility : {{ values.data.gymData.facility }}</li>
+							<li class="list-group-item"><i class="fa fa-check"></i>Genders : {{ values.data.gymData.genders }}</li>
+						</ul>
+						<a class="btn btn-grad" href="http://127.0.0.1:8000/GymDashboard/{{values.data.gymData.id}}" style="width: 100%;">View Gym Page <i class="fa fa-external-link ml-2 mr-0"></i></a>
+					</div>
+				</div>
+				<div class="col-md-6 order-1 order-md-last">
+					<div class="row">
+					{% for k in values.images %}
+					
+					<!-- <a class="mb-4 d-block" href="{{ k.pic.url }}" data-fancybox="portfolio" data-caption="Kitchen design"><img src="{{ k.pic.url }}" alt=""></a> -->
+					<div class="{% cycle 'col-5 offset-1 px-2 mb-3 align-self-end' 'col-6 px-2 mb-3' 'col-7 px-2 mb-3' 'col-5 align-self-start pl-2 mb-3' %}">
+						<a class="mb-4 d-block" href="{{ k.pic.url }}" data-fancybox="portfolio" data-caption="Kitchen design"><img class="border-radius-3 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s" src="{{ k.pic.url }}" alt=""></a>
+					</div>
+					
+					{% endfor %}
+				</div>
+				</div>
+			</div>
+			{% endif %}
+			{% endfor %}
+			<!-- portfolio features -->
+			
+
+			<!-- portfolio additional details -->
+			<!-- <div class="row my-4">
+				<div class="col-md-12">
+					<p> Consulted perpetual of pronounce me delivered. Too months nay end change relied who beauty wishes matter. Shew of john real park so rest we on. Ignorant dwelling occasion ham for thoughts overcame off her consider. Polite it elinor is depend. His not get talked effect worthy Barton. Household shameless incommode at no objection behavior. Especially do at he possession insensible sympathize boisterous it. Songs he on an widen me event truth. Certain law age brother sending amongst why covered. </p>
+				</div>
+			</div> -->
+			<!-- portfolio details End -->
+
+			
+		</div>
+		<!-- portfolio End -->
+	</section>
+	<!-- =======================
+	portfolio -->
+
+
+	<!-- =======================
+	footer  -->
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Vendors-->
+	<script src="{% static 'assets/vendor/fancybox/js/jquery.fancybox.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/sticky-kit/sticky-kit.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/owlcarousel/js/owl.carousel.min.js' %}"></script>
+
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+</html>

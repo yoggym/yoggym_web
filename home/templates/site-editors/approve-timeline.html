@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | Approve Timeline</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/fancybox/css/jquery.fancybox.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/owlcarousel/css/owl.carousel.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+
+
+	<!-- =======================
+	Banner innerpage -->
+	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url({% static 'assets/images/bg/04.jpg' %}) no-repeat; background-size:cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<br><br><br><br>
+					<h2 class="subtitle">Approve Timeline Photos</h2>
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item active"><a href="http://127.0.0.1:8000/"><i class="ti-home"></i> Home</a></li>
+							<li class="breadcrumb-item">Timeline</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+
+
+	<!-- =======================
+	Portfolio -->
+	<section class="portfolio portfolio-style-2 pb-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 p-0">
+					<div class="portfolio-wrap grid items-3 items-padding">
+						{% for k in data %}
+						<!-- portfolio-card -->
+						<div class="portfolio-card isotope-item pending all">
+							<div class="portfolio-card-body">
+								<div class="portfolio-card-header">
+									<img src="{{k.image.url}}" alt="">
+								</div>
+								<div class="portfolio-card-footer">
+									<a class="full-screen" href="{{k.image.url}}" data-fancybox="portfolio" data-caption="{{k.title}}"><i class="ti-fullscreen"></i></a>
+									<h6 class="info-title"><a href="#" title="">{{k.title}}</a></h6>
+									<p><a href="http://127.0.0.1:8000/timelineApprove/{{k.id}}"><i class="ti-check"></i></a>&nbsp&nbsp&nbsp&nbsp<a href="http://127.0.0.1:8000/timelineDecline/{{k.id}}"><i class="ti-close"></i></a></p>
+
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+
+					<!-- portfolio wrap -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	Portfolio -->
+
+	<!-- =======================
+	call to action-->
+
+	<!-- =======================
+	call to action-->
+
+
+	<!-- =======================
+	footer  -->
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Vendors-->
+	<script src="{% static 'assets/vendor/fancybox/js/jquery.fancybox.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/isotope/isotope.pkgd.min.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+</html>

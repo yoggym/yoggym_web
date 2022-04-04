@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | SignUp</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+		Sign up -->
+	<section class="p-0 d-flex align-items-center">
+		<div class="container-fluid">
+			<div class="row">
+				<!-- left -->
+				<div class="col-12 col-md-5 col-lg-4 d-md-flex align-items-center bg-grad h-sm-100-vh">
+					<div class="w-100 p-3 p-lg-5 all-text-white">
+						<div class="justify-content-center align-self-center">
+							<!-- SVG Logo Start -->
+							<img src="{% static 'assets/images/bazLogo.png' %}" alt="Yoggyms">
+							<!-- SVG Logo End -->
+						</div>
+						<h3 class="font-weight-light">We connect you with the world largest community</h3>
+						<ul class="list-group list-group-borderless mt-4">
+							<li class="list-group-item text-white"><i class="fa fa-check"></i>Connect with your nearby Gyms</li>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i>Discover the best experience with yogyms</li>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i>Tranfer your gym subscription</li>
+							<li class="list-group-item text-white"><a class="btn btn-outline-light " href="http://127.0.0.1:8000/signupClient">Do you want to join a Gym?</a></li>
+
+						</ul>
+					</div>
+				</div>
+				<!-- Right -->
+				<div class="col-12 col-md-7 col-xl-8 mx-auto my-5">
+					<div class="row">
+						<div class="col-md-6">
+							<h2>Please Complete Your Gym's Profile!</h2>
+								<!-- <h5 class="font-weight-light">Join us today! Create your account easy with less information.</h5> -->
+						</div>
+					</div>
+					<form method="POST" action="http://127.0.0.1:8000/signupGym" enctype="multipart/form-data">
+						{% csrf_token %}
+					<div class="row">
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">Gym Name</p>
+										<span class="form-group">
+											<input type="text" name="first_name" class="form-control" placeholder="Gym's Name"></span>
+									</div>
+						</div>
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">Owner Name</p>
+										<span class="form-group">
+											<input type="text" name="last_name" class="form-control" placeholder="Owner's Name"></span>
+									</div>
+						</div>
+							</div>
+						<div class="row">
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">Email</p>
+										<span class="form-group">
+											<input type="text" name="email" class="form-control" placeholder="Email"></span>
+									</div>
+						</div>
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">Phone Number</p>
+										<span class="form-group">
+											<input type="text" name="username" class="form-control" placeholder="Phone Number"></span>
+									</div>
+						</div>
+							</div>
+							<div class="row">
+						<div class="col-md-12">
+							<div>
+										<p class="text-left mb-2">Password</p>
+										<span class="form-group">
+											<input type="password" name="password" class="form-control" placeholder="password">
+											</span>
+									</div>
+						</div>
+						
+							<div class="row">
+								<div class="col-md-4">
+									
+								</div>
+								<div class="col-md-4">
+									<button type="submit" class="btn btn-dark ">Submit</button>
+								</div>
+								<div class="col-md-4">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!-- =======================
+	Sign up -->
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+</html>

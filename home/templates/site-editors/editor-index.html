@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | Editor Home</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+
+	<!-- =======================
+	Banner innerpage -->
+	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url({% static 'assets/images/bg/04.jpg' %}) no-repeat; background-size:cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<h1 class="innerpage-title">Editor's Home</h1>
+					<h6 class="subtitle">All Editor Tools at one place</h6>
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item active"><a href="http://127.0.0.1:8000/"><i class="ti-home"></i> Home</a></li>
+							<li class="breadcrumb-item">Editor Home</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+
+
+	<!-- =======================
+	feature box -->
+	<section>
+		<div class="container">
+			<!-- style 2 -->
+			<div class="row">
+				<div class="col-sm-12 text-center mt-5 mb-4">
+					<h2>Clients Tools</h2>
+					<!-- <p>View/Edit/Delete Clients</p> -->
+				</div>
+				
+				<div class="col-md-4 mt-30">
+					<div class="feature-box f-style-2 h-80 icon-grad">
+						<div class="feature-box-icon"><i class="ti-ruler-pencil"></i></div>
+						<h3 class="feature-box-title">View Clients Transfer Requests</h3>
+						<p class="feature-box-desc"></p>
+						<a class="mt-3 btn btn-outline-primary" href="http://127.0.0.1:8000/ViewTransferRequests">Know more!</a>
+					</div>
+				</div>
+				<div class="col-md-4 mt-30">
+					<div class="feature-box f-style-2 h-80 icon-grad">
+						<div class="feature-box-icon"><i class="ti-agenda"></i></div>
+						<h3 class="feature-box-title">Add Diet Chart</h3>
+						<p class="feature-box-desc"></p>
+						<a class="mt-3  btn btn-outline-primary" href="http://127.0.0.1:8000/addDietChart">Know more!</a>
+					</div>
+				</div>
+				<div class="col-md-4 mt-30">
+					<div class="feature-box f-style-2 h-80 icon-grad">
+						<div class="feature-box-icon"><i class="ti-agenda"></i></div>
+						<h3 class="feature-box-title">Add Workout Chart</h3>
+						<p class="feature-box-desc"></p>
+						<a class="mt-3  btn btn-outline-primary" href="http://127.0.0.1:8000/addWorkoutChart">Know more!</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				
+				<div class="col-md-4 mt-30">
+					<div class="feature-box f-style-2 h-80 icon-grad">
+						<div class="feature-box-icon"><i class="ti-agenda"></i></div>
+						<h3 class="feature-box-title">Approve Timeline</h3>
+						<p class="feature-box-desc"></p>
+						<a class="mt-3  btn btn-outline-primary" href="http://127.0.0.1:8000/ApproveTimeline">Know more!</a>
+					</div>
+				</div>
+			</div>
+			<!-- style 1 end -->
+			<div class="divider mt-5 mb-0"></div>
+			<div class="row">
+				<div class="col-sm-12 text-center mt-5 mb-4">
+					<h2>Gym Tools</h2>
+					<!-- <p>View/Add/Delete Editor</p> -->
+				</div>
+				<div class="col-md-4 mt-30">
+					<div class="feature-box f-style-2 h-80 icon-grad">
+						<div class="feature-box-icon"><i class="ti-save-alt"></i></div>
+						<h3 class="feature-box-title">View/Add Gym Request</h3>
+						<p class="feature-box-desc"></p>
+						<a class="mt-3  btn btn-outline-primary" href="http://127.0.0.1:8000/gymRequests">Know more!</a>
+					</div>
+				</div>
+				<div class="col-md-4 mt-30">
+					<div class="feature-box f-style-2 h-80 icon-grad">
+						<div class="feature-box-icon"><i class="ti-save-alt"></i></div>
+						<h3 class="feature-box-title">Edit Gym Details</h3>
+						<p class="feature-box-desc"></p>
+						<a class="mt-3 btn btn-outline-primary" href="http://127.0.0.1:8000/EditGymRequest">Know more!</a>
+					</div>
+				</div>
+				<div class="col-md-4 mt-30">
+					<div class="feature-box f-style-2 h-80 icon-grad">
+						<div class="feature-box-icon"><i class="ti-agenda"></i></div>
+						<h3 class="feature-box-title">View Applications</h3>
+						<p class="feature-box-desc"></p>
+						<a class="mt-3  btn btn-outline-primary" href="http://127.0.0.1:8000/viewApps">Know more!</a>
+					</div>
+				</div>
+			</div>
+			<!-- style 1 end -->
+			<div class="divider mt-5 mb-0"></div>
+		</div>
+	</section>
+	<!-- =======================
+	feature box -->
+
+	<!-- =======================
+	footer  -->
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+</html>

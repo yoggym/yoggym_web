@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | About us</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/fancybox/css/jquery.fancybox.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/owlcarousel/css/owl.carousel.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+	<!--Apply Now Model Begin -->
+
+	<div class="modal fade text-left" id="ApplyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Apply Now!</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<form method="POST" action="http://127.0.0.1:8000/applyForm">
+							{% csrf_token %}
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-6">
+								<div class="form-group">
+									<label>Name</label>
+									<input class="form-control" type="text" name="name" placeholder="Full Name">
+								</div>
+								</div>
+								<div class="col-md-6">
+								<div class="form-group">
+									<label>Email</label>
+									<input class="form-control" type="text" name="email" placeholder="Your Email">
+								</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Whatsapp Number</label>
+										<input class="form-control" type="text" name="phone" placeholder="Whatsapp Number">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Applying For</label>
+										<input class="form-control" type="text" name="post" placeholder="Applying For">
+									</div>
+								</div>
+							</div>
+						</div>
+					
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-grad">Apply</button>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+	<!-- Ends modal -->
+
+	<!-- =======================
+	Banner innerpage -->
+	<div class="left bg-grad pattern-overlay-4">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4 mt-9">About YOGGYMS</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+
+	<!-- =======================
+	About us -->
+	<section>
+		<div class="container h-100">
+			<div class="row">
+				<div class="col-md-12 col-lg-6 align-self-center ">
+					<div class="title text-left">
+						<span class="pre-title">We are the Yoggyms!</span> 
+
+						<h2>YOG (Your Own Gym ), <span class="text-primary">,a promising startup, </span> is a leading chain of Gyms & Fitness industry.</h2>
+						<p class="mb-0">The portfolio combine all the essentials of fitness Industry. The Company offer the user to achive their dream fitness in a much easier way by providing their users to access any of his favorite gym. They'll get the benefit of transferring their ownership in any gym, plus they'll get their personalised diet and workout  schedule according to their fitness goal.</p>
+						<div class="list-group-inline list-group-number list-unstyled mt-4">
+							<a href="http://127.0.0.1:8000/TransferSubsciption" class="list-group-item list-group-item-action"><span>01</span> Transfer Ownership</a>
+							<a href="http://127.0.0.1:8000/timeline" class="list-group-item list-group-item-action"><span>02</span> Timeline</a>
+							<a href="http://127.0.0.1:8000/DietChart" class="list-group-item list-group-item-action"><span>03</span> Diet Chart</a>
+							<a href="http://127.0.0.1:8000/WorkoutChart" class="list-group-item list-group-item-action"><span>04</span> Workout Chart</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10 col-lg-6 mx-md-auto align-self-center ">
+					<img class="rounded" src="{% static 'assets/images/blog/02.jpg' %}" alt="">
+					<div class="position-absolute left-0 bottom-0 ml-4 ml-md-n2 mb-3">
+						<a class="btn btn-grad" data-fancybox href="https://youtu.be/n_Cn8eFo7u8"> <i class="fa fa-play text-white"></i>Play Video </a>
+					</div>
+				</div>
+			</div>
+			<!-- row end -->
+
+			<div class="row mt-4">
+				<!-- feature 1 -->
+				<div class="col-md-4">
+					<div class="feature-box h-100 icon-primary">
+						<div class="feature-box-icon"><i class="ti-zoom-in"></i></div>
+						<h3 class="feature-box-title">Search Gyms</h3>
+						<p class="feature-box-desc">Our team of Creative and driven entrepreneurs come together to build a gym<strong> search that is fast initiative and unbiased.</strong> </p>
+					</div>
+				</div>
+				<!-- feature 2 -->
+				<div class="col-md-4">
+					<div class="feature-box h-100 icon-primary">
+						<div class="feature-box-icon"><i class="ti-support"></i></div>
+						<h3 class="feature-box-title">Friendly Support</h3>
+						<p class="feature-box-desc">You can contact us 24 x 7 for our support and we will guide you throughout your transformation journey.</p>
+					</div>
+				</div>
+				<!-- feature 3 -->
+				<div class="col-md-4">
+					<div class="feature-box h-100 icon-primary">
+						<div class="feature-box-icon"><i class="ti-bolt"></i></div>
+						<h3 class="feature-box-title">Secure Payments</h3>
+						<p class="feature-box-desc">We use Paytm payment gateway providing highly dependable and safe transactions.</p>
+					</div>
+				</div>
+			</div>
+			<!-- row end -->
+		</div>
+	</section>
+	<!-- =======================
+	About us -->
+
+	<!-- =======================
+	Testimonials -->
+	<section class="bg-light triangle-down py-5">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-8 text-center">
+					<h5 class="m-0">When it comes to both our product and our organisation,  we are at the forefront of<strong class="text-primary bold"> innovation. We are curious enthusiastic </strong> and driven by the desire to exceed our user's expectations..</h5>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	Testimonials -->
+<!-- =======================
+	process-advance -->
+	<section class="process-advance bg-light">
+		<div class="container">
+			<div class="row">
+				<!-- process 1 -->
+				<div class="col-sm-6 col-lg-3 text-center mb-4">
+					<div class="process-border"><span class="process-number bg-grad border-right">01</span></div>
+					<h5 class="my-3">Signup</h5>
+					<p>Register as a client or gym and get access to all our services.</p>
+				</div>
+				<!-- process 1 -->
+				<div class="col-sm-6 col-lg-3 text-center mb-4">
+					<div class="process-border"><span class="process-number bg-grad border-left border-right">02</span></div>
+					<h5 class="my-3">Search</h5>
+					<p>Find the best gym that suits your needs based on location adn services.</p>
+				</div>
+				<!-- process 1 -->
+				<div class="col-sm-6 col-lg-3 text-center mb-4">
+					<div class="process-border"><span class="process-number bg-grad border-left border-right">03</span></div>
+					<h5 class="my-3">Join</h5>
+					<p>Make payment using for gateway and join the gym.</p>
+				</div>
+				<!-- process 1 -->
+				<div class="col-sm-6 col-lg-3 text-center mb-4">
+					<div class="process-border"><span class="process-number bg-grad border-left">04</span></div>
+					<h5 class="my-3">Tranfer</h5>
+					<p>Transfer from one gym to another whenever required.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	process-advance -->
+
+
+	<div class="container divider mb-4 mt-5"> </div>
+	<!-- =======================
+	client -->
+	<section class="client py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="owl-carousel dots-creative arrow-dark arrow-visibile" data-arrow="false" data-dots="false" data-items-xl="6" data-items-md="4" data-items-xs="2" data-autoplay="4500">
+						{% for k in gyms %}
+						<div class="item"><h3 style="color:grey;">{{k.userId.first_name}}</h3></div>
+
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	client -->
+
+	
+	<!-- =======================
+	footer  -->
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Vendors-->
+	<script src="{% static 'assets/vendor/fancybox/js/jquery.fancybox.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/owlcarousel/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-countTo/jquery.countTo.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-appear/jquery.appear.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+</html>

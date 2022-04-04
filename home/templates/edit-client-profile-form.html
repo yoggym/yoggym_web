@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Yoggyms | Add Details</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+		Sign up -->
+	<section class="p-0 d-flex align-items-center">
+		<div class="container-fluid">
+			<div class="row">
+				<!-- left -->
+				<div class="col-12 col-md-5 col-lg-4 d-md-flex align-items-center bg-grad h-sm-100-vh">
+					<div class="w-100 p-3 p-lg-5 all-text-white">
+						<div class="justify-content-center align-self-center">
+							<!-- SVG Logo Start -->
+							<img src="{% static 'assets/images/bazLogo.png' %}" alt="Wizixo">
+							<!-- SVG Logo End -->
+						</div>
+						<h3 class="font-weight-light">We connect you with the world largest community</h3>
+						<ul class="list-group list-group-borderless mt-4">
+							<li class="list-group-item text-white"><i class="fa fa-check"></i>Connect with your nearby Gyms</li>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i>Discover the best experience with yogyms</li>
+							<li class="list-group-item text-white"><i class="fa fa-check"></i>Tranfer your gym subscription</li>
+							<li class="list-group-item text-white"><button class="btn btn-outline-light ">Do you own a Gym?</button></li>
+
+						</ul>
+					</div>
+				</div>
+				<!-- Right -->
+				<div class="col-12 col-md-7 col-xl-8 mx-auto my-5">
+					<div class="row">
+						<div class="col-md-6">
+							<h2>Please Complete Your Profile!</h2>
+								<!-- <h5 class="font-weight-light">Join us today! Create your account easy with less information.</h5> -->
+						</div>
+					</div>
+					<form method="POST" action="http://127.0.0.1:8000/EditClientProfile" enctype="multipart/form-data">
+						{% csrf_token %}
+					<div class="row">
+						
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">City</p>
+										<span class="form-group">
+											<input type="text" name="city" class="form-control" value="{{profileData.city}}"></span>
+									</div>
+						</div>
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">Area</p>
+										<span class="form-group">
+											<input type="hidden" name="userId" class="form-control" value="{{user.id}}">
+											<input type="text" name="area" class="form-control" value="{{profileData.area}}"></span>
+									</div>
+						</div>
+							</div>
+						
+							<div class="row">
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">Pincode</p>
+										<span class="form-group">
+											<input type="text" name="pincode" class="form-control" value="{{profileData.pincode}}"></span>
+									</div>
+						</div>
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">Gender</p>
+										<span class="form-group">
+											<input type="text" name="gender" class="form-control" value="{{profileData.gender}}"></span>
+									</div>
+						</div>
+							</div>
+						<div class="row">
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">Height</p>
+										<span class="form-group">
+											<input type="text" name="height" class="form-control" value="{{profileData.height}}"></span>
+									</div>
+						</div>
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">Weight</p>
+										<span class="form-group">
+											<input type="text" name="weight" class="form-control" value="{{profileData.weight}}"></span>
+									</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div>
+										<p class="text-left mb-2">DOB</p>
+										<span class="form-group">
+											<input type="text" name="dob" class="form-control" value="{{profileData.dob}}"></span>
+									</div>
+						</div>
+						<div class="col-md-6">
+							<!-- <div>
+								<p class="text-left mb-2">Profile Picture</p>
+							<div class="custom-file">
+							<input type="file" class="form-control-file" id="exampleFormControlFile1" value="{{profileData.profilePic}}">
+						</div>
+									</div> -->
+						</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									
+								</div>
+								<div class="col-md-4">
+									<button type="submit" class="btn btn-dark ">Submit</button>
+								</div>
+								<div class="col-md-4">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	Sign up -->
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+
+<!-- Mirrored from wizixo.webestica.com/sign-up.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Sep 2020 11:33:27 GMT -->
+</html>

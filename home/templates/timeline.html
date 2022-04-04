@@ -1,0 +1,209 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Yoggyms | Timeline</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+$(document).ready(function(){
+  	$(document).on('click', '.like', function()
+  		{
+        	var post_id = $(this).attr("id");
+        	$.get("http://127.0.0.1:8000/like/"+post_id, function(data, status){
+		      /*alert("Data: " + data['like'] + "\nStatus: " + status);*/
+		      $("#like"+post_id).text(data['like']);
+		      $("#"+post_id).removeClass("btn-dark");
+		       $("#"+post_id).addClass("btn-danger");
+		       $("#"+post_id).removeClass("like");
+		       $("#"+post_id).addClass("unlike");
+		    });
+       
+       	});
+	});
+</script>
+<script>
+$(document).ready(function(){
+  	$(document).on('click', '.unlike', function()
+  		{
+        	var post_id = $(this).attr("id");
+        	$.get("http://127.0.0.1:8000/unlike/"+post_id, function(data, status){
+		      /*alert("Data: " + data['like'] + "\nStatus: " + status);*/
+		      $("#like"+post_id).text(data['like']);
+		      $("#"+post_id).removeClass("btn-danger");
+		       $("#"+post_id).addClass("btn-dark");
+		       $("#"+post_id).removeClass("unlike");
+		       $("#"+post_id).addClass("like");
+		    });
+       
+       	});
+	});
+</script>
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+
+	<!-- =======================
+	Banner innerpage -->
+	<div class="innerpage-banner center bg-overlay-dark-7 py-7" style="background:url({% static 'assets/images/bg/04.jpg' %}) no-repeat; background-size:cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<h1 class="innerpage-title">Timeline</h1>
+					<br><br><br><br>
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item active"><a href="http://127.0.0.1:8000/"><i class="ti-home"></i> Home</a></li>
+							<li class="breadcrumb-item">Timeline</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+
+	<!-- =======================
+	timeline -->
+	<section class="timeline-page">
+		<div class="container">
+			
+			{% for key, values in Data.items %}
+			{% cycle True False as row silent %}
+            {% if row %}
+			<!-- timeline item 2 -->
+			<div class="row no-gutters">
+				<div class="col-md py-2">
+					<div class="card">
+						<img class="img-fluid" src="{{values.data.image.url}}" alt="">
+						<div class="card-body">
+							<div class="float-right">
+									{% if values.liked is True %}
+										<div class="float-right">
+											<button class="btn btn-danger btn-sm btn-round zoom-on-hover mr-3 unlike" id="{{values.data.id}}">
+												<i class="fa fa-heart"></i> 
+											</button>
+											<span id="like{{values.data.id}}"> {{values.data.likes.count}}
+												</span>
+
+										</div>
+
+									{% else %}
+										<div class="float-right">
+											<button class="btn btn-dark btn-sm btn-round zoom-on-hover mr-3 like" id="{{values.data.id}}">
+												<i class="fa fa-heart"></i> 
+											</button>
+											<span id="like{{values.data.id}}"> {{values.data.likes.count}}
+												</span>
+										</div>
+									{% endif %}
+
+							</div>
+							<h4 class="mb-2">{{values.data.title}}</h4>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 text-center timeline-line flex-column d-none d-md-flex">
+					<div class="timeline-dot"></div>
+				</div>
+				<div class="col-md"></div>
+			</div>
+
+			{% else %}
+			<!-- timeline item 3 -->
+			<div class="row no-gutters">
+				<div class="col-md"> </div>
+				<div class="col-md-1 text-center timeline-line flex-column d-none d-md-flex">
+					<div class="timeline-dot"></div>
+				</div>
+				<div class="col-md py-2">
+					<div class="card">
+						<img class="img-fluid" src="{{values.data.image.url}}" alt="">
+						<div class="card-body">
+							{% if values.liked is True %}
+										<div class="float-right">
+											<button class="btn btn-danger btn-sm btn-round zoom-on-hover mr-3 unlike" id="{{values.data.id}}">
+												<i class="fa fa-heart"></i> 
+											</button>
+											<span id="like{{values.data.id}}"> {{values.data.likes.count}}
+												</span>
+
+										</div>
+
+									{% else %}
+										<div class="float-right">
+											<button class="btn btn-dark btn-sm btn-round zoom-on-hover mr-3 like" id="{{values.data.id}}">
+												<i class="fa fa-heart"></i> 
+											</button>
+											<span id="like{{values.data.id}}"> {{values.data.likes.count}}
+												</span>
+										</div>
+									{% endif %}
+							<h4 class="mb-2">{{values.data.title}}</h4>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+			{% endfor %}
+		</div>
+	</section>
+	<!-- =======================
+	timeline -->
+
+
+	<!-- =======================
+	call to action-->
+	
+	<!-- =======================
+	call to action-->
+
+	<!-- =======================
+	footer  -->
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!--Vendors-->
+	<script src="{% static 'assets/vendor/fitvids/jquery.fitvids.js' %}"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+</body>
+</html>

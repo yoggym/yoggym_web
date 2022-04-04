@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | SignUp</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+	 <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+
+  
+</head>
+
+<body>
+	<input type="text" name="phone" id="phone">
+	<button id="verifyPhone" onclick="onSignInSubmit()">Verify Phone</button>
+	<div id="verifyInput">
+		<input type="text" placeholder="Enter Otp" id="EnteredOtp">
+		<button onclick="verifyOtp()">Verify Otp</button>
+	</div>
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+
+ 
+ <script type="text/javascript">
+
+ 	var firebaseConfig = {
+     apiKey: "AIzaSyCQy28B4ld_UHl5xXIBZZr9rO64-eiJLoM",
+    authDomain: "yoggyms.firebaseapp.com",
+    databaseURL: "https://yoggyms.firebaseio.com",
+    projectId: "yoggyms",
+    storageBucket: "yoggyms.appspot.com",
+    messagingSenderId: "618578641113",
+    appId: "1:618578641113:web:4c722f69306cddf97ffec8",
+    measurementId: "G-3K6NCYJZNX"
+    };
+  	firebase.initializeApp(firebaseConfig);
+	var db = firebase.firestore();
+
+  	firebase.auth().useDeviceLanguage();
+  	window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('phone', {
+  'size': 'invisible',
+  'callback': function(response) {
+    // reCAPTCHA solved, allow signInWithPhoneNumber.
+/*    onSignInSubmit();
+*/  }
+});
+ function onSignInSubmit(){
+ var phoneNumber = document.getElementById("phone").value;
+var appVerifier = window.recaptchaVerifier;
+firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+    .then(function (confirmationResult) {
+      // SMS sent. Prompt user to type the code from the message, then sign the
+      // user in with confirmationResult.confirm(code).
+      window.confirmationResult = confirmationResult;
+       alert("Sent   YAYAYAY");
+    }).catch(function (error) {
+    	console.log(error);
+     grecaptcha.reset(window.recaptchaWidgetId);
+		// Or, if you haven't stored the widget ID:
+		window.recaptchaVerifier.render().then(function(widgetId) {
+		  grecaptcha.reset(widgetId);
+		   alert("Not sent Nooooo");
+		});
+    });
+}
+function verifyOtp(){
+	var code = document.getElementById("EnteredOtp").value;
+confirmationResult.confirm(code).then(function (result) {
+  alert("YAYAYAY");
+  var user = result.user;
+  // ...
+}).catch(function (error) {
+  alert("NOOOOOOOOO");
+});
+}
+  </script>
+
+</body>
+
+</html>

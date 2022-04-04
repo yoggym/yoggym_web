@@ -1,0 +1,414 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Yoggyms | Add Gym Details</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900%7CPlayfair+Display:400,400i,700,700i%7CRoboto:400,400i,500,700" rel="stylesheet">
+<!-- Favicon -->
+	<link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" />
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/themify-icons/css/themify-icons.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="{% static 'assets/images/preloader.svg' %}" alt="Pre-loader">
+	</div>
+
+	<!-- =======================
+	header Start-->
+	{% include "header-light.html" %}
+	<!-- =======================
+	header End-->
+
+
+	<!-- =======================
+	Banner innerpage -->
+	<div class="text-center bg-overlay-dark-4" style="background:url({% static 'assets/images/bg/05.jpg' %}) no-repeat; background-size: cover; background-position: center center;">
+		<div class="container">
+			<div class="row all-text-white">
+				<div class="col-md-12 align-self-center">
+					<br><br><br><br><br><br><br><br>
+					<h1 class="font-weight-bold display-4 display-md-1 mb-2 mb-md-n4">Gym Details</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- =======================
+	Banner innerpage -->
+
+	<!-- =======================
+	contact -->
+	<section class="contact-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-8 mx-auto">
+					<div class="title text-center">
+						
+						
+					</div>
+				</div>
+			</div>
+			<div class="row ">
+				
+				<!-- google map -->
+				
+				<!-- contact form -->
+				<div class="col-md-12">
+					<div class="h-100">
+						<h3>Add Gym Details</h3>
+						
+						<form method="POST" enctype="multipart/form-data" action="https://www.yoggyms.com/gymAddDetailsForm">
+							{% csrf_token %}
+
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<input type="hidden" name="gymId" value="{{gymId}}">
+										<input id="con-name" name="about" type="text" class="form-control" placeholder="About" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<input id="con-name" name="additionalInfo" type="text" class="form-control" placeholder="Additional Info" required>
+									</span>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<!-- email -->
+									<span class="form-group">
+										<textarea id="con-email" name="testimonial" type="text" class="form-control" placeholder="Testimonial" required></textarea>
+									</span>
+								</div>
+							
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="accountNo" type="text" class="form-control" placeholder="Account Number" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="bankName" type="text" class="form-control" placeholder="Bank Name" multiple="True" required>
+									</span>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="IFSCcode" type="text" class="form-control" placeholder="IFSC Code" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="bankBranch" type="text" class="form-control" placeholder="Branch" multiple="True" required>
+									</span>
+								</div>
+							</div>
+
+							
+
+							<div class="row">
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="openingTime" type="text" class="form-control" placeholder="Time of Opening" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="closingTime" type="text" class="form-control" placeholder="Time of Closing" multiple="True" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<input id="con-name" name="closedOn" type="text" class="form-control" placeholder="Closed On days" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="pics" type="file" class="form-control" placeholder="Pics" multiple="True" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<input id="con-name" name="facility" type="text" class="form-control" placeholder="Facility" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										
+										<select class="form-control mb-3" name="genders" required>
+											<option selected="" value="">Select Gender</option>
+											<option value="Male">Male</option>
+											<option value="Female">Female</option>
+											<option value="All">All</option>
+										</select>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<input id="con-name" name="speciality" type="text" class="form-control" placeholder="Speciality" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										
+										<select class="form-control mb-3" name="ac" required>
+											<option selected="" value="">AC</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<select class="form-control mb-3" name="changingRoom" required>
+											<option selected="" value="">Changing Rooms</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										
+										<select class="form-control mb-3" name="personalTrainer" required>
+											<option selected="" value="">Personal Trainer</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<!-- name -->
+									<span class="form-group">
+										<select class="form-control mb-3" name="sauna" required>
+											<option selected="" value="">Sauna</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										
+										<select class="form-control mb-3" name="locker" required>
+											<option selected="" value="">Locker</option>
+											<option value="True">Yes</option>
+											<option value="False">No</option>
+=										</select>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="monthlyPrice" type="text" class="form-control" placeholder="Monthly Charges" required>
+									</span>
+								</div>
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="monthlyOriginal" type="text" class="form-control" placeholder="Monthly Ori. Price" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="monthlyAbout" type="text" class="form-control" placeholder="Features of Plan" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="quarterlyPrice" type="text" class="form-control" placeholder="Quarterly Charges" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="quarterlyOriginal" type="text" class="form-control" placeholder="Quarterly Ori. Price" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="quarterlyAbout" type="text" class="form-control" placeholder="Features of Plan" multiple="True" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="halfyearlyPrice" type="text" class="form-control" placeholder="Half Yearly Charges" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="halfyearlyOriginal" type="text" class="form-control" placeholder="Halfyearly Ori. Price" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="halfyearlyAbout" type="text" class="form-control" placeholder="Features of Plan" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="yearlyPrice" type="text" class="form-control" placeholder="Yearly Charges" multiple="True" required>
+									</span>
+								</div>
+								<div class="col-md-3">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="yearlyOriginal" type="text" class="form-control" placeholder="Yearly Ori. Price" required>
+									</span>
+								</div>
+								<div class="col-md-6">
+									<!-- email -->
+									<span class="form-group">
+										<input id="con-email" name="yearlyAbout" type="text" class="form-control" placeholder="Features of Plan" multiple="True" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<span class="form-group">
+										<input id="con-email" name="ytlink" type="text" class="form-control" placeholder="Youtube Video Link" required>
+									</span>
+								</div>
+								
+							</div>
+							<div class="row"  style="text-align: center;">
+								<div class="col-md-2 text-center"><a class="btn btn-link" onclick="showZumbaForm()">Add Zumba</a></div>
+							</div>
+							<div style="display: none;" id="zumbaForm">
+							<div class="row">
+								<div class="col-md-4">
+									<span class="form-group">
+										<input id="con-email" name="days" type="text" class="form-control" placeholder="Days" required>
+									</span>
+								</div>
+								<div class="col-md-4">
+									<span class="form-group">
+										<input id="con-email" name="time" type="text" class="form-control" placeholder="Time" required>
+									</span>
+								</div>
+								<div class="col-md-4">
+									<span class="form-group">
+										<input id="con-email" name="trainer" type="text" class="form-control" placeholder="Trainer" required>
+									</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<span class="form-group">
+										<input id="con-email" name="about" type="text" class="form-control" placeholder="About" required>
+									</span>
+								</div>
+								<div class="col-md-4">
+									<span class="form-group">
+										<input id="con-email" name="fee" type="text" class="form-control" placeholder="Fees" required>
+									</span>
+								</div>
+								<div class="col-md-4">
+									<span class="form-group">
+										<input id="con-email" name="image" type="file" class="form-control" placeholder="image" required multiple>
+									</span>
+								</div>
+							</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								<!-- submit button -->
+								<div class="col-md-12 text-center"><button type="submit" class="btn btn-dark btn-block">Add</button></div>
+							</div>
+							</div>
+							</div>
+							<!-- End main form -->
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+	contact -->
+
+	{% include "footer.html" %}
+	<!-- =======================
+	footer  -->
+
+	<div> <a href="#" class="back-top btn btn-grad"><i class="ti-angle-up"></i></a> </div>
+
+	<!--Global JS-->
+	<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/popper.js/umd/popper.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+	<!-- Google Map -->
+	<script src="{% static 'assets/vendor/map/map.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtF5lHSU7Y7c2BYl_c4-G9bSi44h1X9Ls"></script>
+
+	<!--Template Functions-->
+	<script src="{% static 'assets/js/functions.js' %}"></script>
+	<script type="text/javascript">
+	function showZumbaForm(){
+		document.getElementById("zumbaForm").style.display="block";
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+<header class="navbar-transparent navbar-dark">
+		
+
+		<!-- Logo Nav Start -->
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid">
+				<!-- Logo -->
+				<a class="" href="http://127.0.0.1:8000/">
+					<!-- <img class="" src="{% static 'assets/images/yoggym2.png' %}" alt="Yoggyms" style="width:auto;height: 70px;"> -->
+				</a>
+				<!-- Menu opener button -->
+				<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"> </span>
+			  </button>
+				<!-- Main Menu Start -->
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link " href="http://127.0.0.1:8000/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link " href="http://127.0.0.1:8000/about">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link " href="http://127.0.0.1:8000/gymCatalog">Gyms</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link " href="http://127.0.0.1:8000/timeline">Timeline</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link " href="http://127.0.0.1:8000/TransferSubsciption">Transfer</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link " href="http://127.0.0.1:8000/services">Services</a>
+						</li>
+				<!-- Main Menu End -->
+				<!-- Header Extras Start-->
+				<div class="navbar-nav">
+					<!-- extra item Search-->
+					{% if user.first_name %} {% else %}
+					<div class="nav-item search border-0 pl-3 pr-0 px-lg-2" id="search">
+						<a class="nav-link" href="http://127.0.0.1:8000/signin"><i class="ti-user"> </i> Sign In</a>
+					</div>
+					{% endif %}
+					<!-- extra item Btn-->
+					{% if user.first_name %}
+					<div class="nav-item border-0 d-none d-lg-inline-block align-self-center">
+						<ul>
+						<li class="nav-item dropdown">
+							<a class="btn btn-sm btn-grad text-white mb-0 dropdown-toggle" href="#" id="docMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user.first_name}}</a>
+							<ul class="dropdown-menu" aria-labelledby="docMenu">
+								{% if user.is_superuser is True  %}
+								<li> <a class="dropdown-item" href="http://127.0.0.1:8000/adminHome">Dashboard</a> </li>
+								{% elif user.is_staff is True %}
+								<li> <a class="dropdown-item" href="http://127.0.0.1:8000/editorHome">Dashboard</a> </li>
+								{% else %}
+								<li> <a class="dropdown-item" href="http://127.0.0.1:8000/dashboard">Dashboard</a> </li>
+								{% endif %}
+								<li> <a class="dropdown-item" href="http://127.0.0.1:8000/logout">Logout</a> </li>
+							</ul>
+						</li>
+					</ul>
+					</div>
+					{% else %}
+
+					<div class="nav-item border-0 d-none d-lg-inline-block align-self-center">
+						<a href="http://127.0.0.1:8000/signupClient" class=" btn btn-sm btn-grad text-white mb-0">Sign Up</a>
+					</div>
+					{% endif %}
+				</div>
+				<!-- Header Extras End-->
+			</div>
+		</nav>
+		<!-- Logo Nav End -->
+	</header>
